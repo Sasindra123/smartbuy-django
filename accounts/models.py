@@ -18,6 +18,7 @@ class MyAccountManager(BaseUserManager):
     ) # normalize the username capitals to smalls
 
     user.set_password(password)
+    user.is_active=True
     user.save(using=self._db)
     return user
   
