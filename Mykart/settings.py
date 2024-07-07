@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'orders',
+    'paypal.standard.ipn',
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -152,3 +154,6 @@ EMAIL_PORT=587
 EMAIL_HOST_USER='durgasasindra91@gmail.com'
 EMAIL_HOST_PASSWORD='sxao jbhb ivgp qzkl'
 EMAIL_USE_TLS=True
+
+PAYPAL_RECEIVER_EMAIL = 'durgasasindra91@gmail.com'
+PAYPAL_TEST = True  # Set to False for production

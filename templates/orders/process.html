@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Processing Payment</title>
+    <script>
+      function checkPaymentStatus() {
+        if ("{{check_status}}" === "True") {
+          console.log("height");
+          window.location.href = "/orders/payment-success/";
+        } else {
+          setTimeout(() => {
+            console.log("d");
+            window.location.href = "/orders/payment-success/";
+          }, 2000); // Wait for 2 seconds before redirecting
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        checkPaymentStatus();
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Your payment is being processed. Please wait...</h1>
+  </body>
+</html>
