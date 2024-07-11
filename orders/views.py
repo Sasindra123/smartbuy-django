@@ -86,7 +86,7 @@ def payment_product(request):
         'invoice': str(uuid.uuid4()),  # Ensure this is a string
         'currency_code': 'USD',
         "item_number":order_number,
-        'notify_url': f"https://b0c3-149-102-244-101.ngrok-free.app{reverse('paypal-ipn')}",
+        'notify_url': f"https://89b4-49-43-201-233.ngrok-free.app{reverse('paypal-ipn')}",
         'return_url': f"http://{host}{reverse('payment-success',kwargs = {'order_number':order_number})}",
         'cancel_url': f"http://{host}{reverse('payment-failed')}",
     }
