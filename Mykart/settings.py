@@ -25,7 +25,7 @@ SECRET_KEY = '_0#-hhz*77pv8poa_mk&!^x9b+wk9*jth_-4mskv74lm=z#=g_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -155,5 +155,5 @@ EMAIL_HOST_USER='durgasasindra91@gmail.com'
 EMAIL_HOST_PASSWORD='sxao jbhb ivgp qzkl'
 EMAIL_USE_TLS=True
 
-PAYPAL_RECEIVER_EMAIL = 'durgasasindra91@gmail.com'
+PAYPAL_RECEIVER_EMAIL='durgasasindra91@gmail.com'
 PAYPAL_TEST = True  # Set to False for production

@@ -1,24 +1,20 @@
-    #*====================  ALL IMPORTS ======================== # 
-
-from django.shortcuts import render, redirect
-from carts.models import CartItem
-from paypal.standard.forms import PayPalPaymentsForm
 from django.conf import settings
-import uuid
+import uuid 
+from paypal.standard.models import ST_PP_COMPLETED
+from paypal.standard.forms import PayPalPaymentsForm
+from carts.models import CartItem
+from accounts.models import Account 
+from store.models import Product 
+from .models import Order, Payment, OrderProduct
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import OrderForm
 import datetime
-from .models import Order, Payment, OrderProduct
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-from paypal.standard.models import ST_PP_COMPLETED
-import logging
-from store.models import Product
+import logging 
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
-from accounts.models import Account
-
-
 
     #*====================  STEP 1 FUNCTION  ======================== # 
 
@@ -86,7 +82,7 @@ def payment_product(request):
         'invoice': str(uuid.uuid4()),  # Ensure this is a string
         'currency_code': 'USD',
         "item_number":order_number,
-        'notify_url': f"https://89b4-49-43-201-233.ngrok-free.app{reverse('paypal-ipn')}",
+        'notify_url': f"https://d370-2405-201-c042-809b-d85d-454a-91b9-c13f.ngrok-free.app{reverse('paypal-ipn')}",
         'return_url': f"http://{host}{reverse('payment-success',kwargs = {'order_number':order_number})}",
         'cancel_url': f"http://{host}{reverse('payment-failed')}",
     }
@@ -149,6 +145,7 @@ logger = logging.getLogger(__name__)
 @csrf_exempt
 def paypal_ipn(request):
     ipn_data = request.POST
+    logger.info(f"Received IPN data: {ipn_data}")
 
     # Ensure the payment_status is completed
     if ipn_data.get('payment_status') == ST_PP_COMPLETED:
