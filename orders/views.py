@@ -82,9 +82,9 @@ def payment_product(request):
         'invoice': str(uuid.uuid4()),  # Ensure this is a string
         'currency_code': 'USD',
         "item_number":order_number,
-        'notify_url': f"https://7df0-49-43-200-102.ngrok-free.app/orders/paypal-ipn/",
-        'return_url': f"https://7df0-49-43-200-102.ngrok-free.app{reverse('payment-success',kwargs = {'order_number':order_number})}",
-        'cancel_url': f"https://7df0-49-43-200-102.ngrok-free.app{reverse('payment-failed')}",
+        'notify_url': f"https://0ec6-2409-40f0-100a-21ef-880c-3050-1a5b-49e8.ngrok-free.app/orders/paypal-ipn/",
+        'return_url': f"https://0ec6-2409-40f0-100a-21ef-880c-3050-1a5b-49e8.ngrok-free.app{reverse('payment-success',kwargs = {'order_number':order_number})}",
+        'cancel_url': f"https://0ec6-2409-40f0-100a-21ef-880c-3050-1a5b-49e8.ngrok-free.app{reverse('payment-failed')}",
     }
     paypal_payment = PayPalPaymentsForm(initial=paypal_checkout)
 
